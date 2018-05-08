@@ -23,7 +23,7 @@
                     feedparser.parse({uri: body.xmlurl, timeout: 10000}).then(function (items) {
                         return res.send({
                             code: 200,
-                            data: items
+                            data: {items: items}
                         });
                     }).catch(function (err) {
                         return res.send({
