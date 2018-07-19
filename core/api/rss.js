@@ -19,7 +19,7 @@
                     });
 
                 } catch (e) {
-                    console.error(e.message, '继续使用 feedparser 抓取')
+                    console.error(e.message, '继续使用 feedparser 抓取', body.xmlurl)
                     feedparser.parse({uri: body.xmlurl, timeout: 10000}).then(function (items) {
                         return res.send({
                             code: 200,

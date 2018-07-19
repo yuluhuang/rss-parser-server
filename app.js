@@ -40,8 +40,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.set('port', process.env.PORT || 3000);
-
+app.set('port', process.env.PORT || 3001);
+process.on("uncaughtException", function(err) {
+    debug('process  uncaughtException event:', err.message);
+});
 const server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
 });
